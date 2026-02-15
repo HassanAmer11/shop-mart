@@ -12,8 +12,7 @@ export async function getUserCartData() {
     console.log("token", session?.token);
     const response = await fetch(process.env.API_URL + "cart", {
       headers: {
-        token: session?.token || "",
-        "Content-Type": "application/json",
+        token: session?.token || ""
       },
     });
     const data: CartResponse = await response.json();
