@@ -1,19 +1,10 @@
-import { authOptions } from "@/authOptions";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
-const session = await getServerSession(authOptions);
+
 export default function Home() {
   return (
     <div>
       <section className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {session ? (
-            <h2 className="text-2xl font-semibold mb-2">
-              Hi {session.user?.name}
-            </h2>
-          ) : (
-            <h2 className="text-2xl font-semibold mb-2">Hi Guest</h2>
-          )}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
             Welcome to ShopMart
           </h1>
