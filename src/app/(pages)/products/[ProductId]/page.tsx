@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { formatCurrency } from "@/Helpers/formatCurrency";
 import { Product } from "@/Interfaces/ProductInterface";
 import { Star } from "lucide-react";
 import { Params } from "next/dist/server/request/params";
@@ -50,7 +51,7 @@ export default async function ProductDetails({ params }: { params: Params }) {
                 </div>
               </div>
               <CardDescription className="text-lg font-bold text-black">
-                EGP {product.price}
+                 {formatCurrency(product.price)}
               </CardDescription>
             </CardHeader>
 

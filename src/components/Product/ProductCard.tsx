@@ -9,6 +9,7 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 import AddToCart from "@/components/Cart/AddToCart";
 import { Product } from "@/Interfaces/ProductInterface";
+import { formatCurrency } from "@/Helpers/formatCurrency";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 <Star fill="gold" color="none" />
               </div>
               <CardDescription className="text-lg font-bold text-black">
-                EGP {product.price}
+                 {formatCurrency(product.price)}
               </CardDescription>
             </CardHeader>
           </Link>

@@ -10,6 +10,8 @@ import {
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
+import CheckOut from "../CheckOut/CheckOut";
+import { formatCurrency } from "@/Helpers/formatCurrency";
 
 export default function Cart({ cartData }: { cartData: CartResponse }) {
   const [cartItems, setCartItems] = useState<CartResponse | null>(cartData);
@@ -18,9 +20,7 @@ export default function Cart({ cartData }: { cartData: CartResponse }) {
     const res = await clearCartAction();
     if (res.message === "success") {
       setCartItems(null);
-      dispatchEvent(
-        new CustomEvent("cartUpdated", { detail: 0 }),
-      );
+      dispatchEvent(new CustomEvent("cartUpdated", { detail: 0 }));
     }
   }
 
@@ -84,7 +84,7 @@ export default function Cart({ cartData }: { cartData: CartResponse }) {
                         </p>
                       </div>
                       <div className="text-right shrink-0">
-                        <div className="font-semibold">EGP {item.price}</div>
+                        <div className="font-semibold">{formatCurrency(item.price)}</div>
                       </div>
                     </div>
                     <div className="mt-3 flex items-center justify-between">
@@ -139,7 +139,7 @@ export default function Cart({ cartData }: { cartData: CartResponse }) {
                       Subtotal (1 items)
                     </span>
                     <span className="font-semibold">
-                      EGP {cartItems.data.totalCartPrice}
+                       {formatCurrency(cartItems.data.totalCartPrice)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
@@ -157,24 +157,15 @@ export default function Cart({ cartData }: { cartData: CartResponse }) {
                   </span>
                 </div>
 
-                <Link href="/products">
-                  <button className="w-full  cursor-pointer mt-3 h-11 rounded-xl border hover:bg-accent">
-                    Continue Shopping
-                  </button>
-                </Link>
-                <form>
-                  <button
-                    className="w-full cursor-pointer mt-5 h-11 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90"
-                    type="button"
-                    aria-haspopup="dialog"
-                    aria-expanded="false"
-                    aria-controls="radix-«r3»"
-                    data-state="closed"
-                    data-slot="dialog-trigger"
-                  >
-                    Proceed to Checkout
-                  </button>
-                </form>
+                <div className="flex flex-col gap-3">
+                  <Link href="/products">
+                    <button className="w-full  cursor-pointer mt-3 h-11 rounded-xl border hover:bg-accent">
+                      Continue Shopping
+                    </button>
+                  </Link>
+
+                  <CheckOut cartId={cartItems.cartId} />
+                </div>
               </div>
               <button
                 onClick={() => {

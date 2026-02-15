@@ -30,7 +30,7 @@ export default function Product({ productList }: { productList : ProductResponse
 
 
   return (
-    <>
+    <div className="pt-4">
       {isLoading ? (
         <Loading />
       ) : (
@@ -72,6 +72,6 @@ export default function Product({ productList }: { productList : ProductResponse
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -2,11 +2,13 @@
 
 import { authOptions } from "@/authOptions";
 import { CartResponse } from "@/Interfaces/CartInterface";
+import { CheckOutResponse, ShippingAddress } from "@/Interfaces/ShippingAddressInterface";
 import { getServerSession } from "next-auth";
 
 
 export async function getUserCartData() {
   const session = await getServerSession(authOptions);
+  console.log("token", session?.token);
   const response = await fetch(process.env.API_URL + "cart", {
     headers: {
       token: session?.token || "",
@@ -75,3 +77,23 @@ export async function updateCartItemQuantityAction(productId: string, count: num
   return data;
 
 };
+
+
+
+export async function checkoutSessionAction(cartId: string , shippingAddress :ShippingAddress) {
+  const session = await getServerSession(authOptions);
+  const response = await fetch(
+    process.env.API_URL +
+      `orders/checkout-session/${cartId}?url=${process.env.BASE_URL}`,
+    {
+      method: "POST",
+      headers: {
+        token: session?.token as string,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ shippingAddress }),
+    },
+  );
+  const data: CheckOutResponse = await response.json();
+  return data; 
+}

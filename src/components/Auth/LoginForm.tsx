@@ -44,8 +44,8 @@ export function LoginForm() {
   const form = useForm<dataForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "hassan.amer@gmail.com",
-      password: "Hassan@123",
+      email: "hassanEx@example.com",
+      password: "hassanEx@12",
     },
   });
 
@@ -65,7 +65,9 @@ export function LoginForm() {
     if (response?.ok) {
       toast.success("Login Successfully");
       router.push(redirectUrl || "/products");
-    } else {
+      router.refresh();
+    }
+    if (response?.error) {
       toast.error(response?.error, { duration: 4000 });
     }
     setIsLoading(false);
