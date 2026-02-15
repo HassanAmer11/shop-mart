@@ -1,14 +1,11 @@
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {
-  FailedAuthResponse,
-  SuccessAuthResponse,
-} from "./Interfaces/AuthInterface";
+import { SuccessAuthResponse } from "./Interfaces/AuthInterface";
 
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Hassan",
+      name: "Routes Credentials",
       credentials: {
         email: {},
         password: {},
@@ -24,8 +21,7 @@ export const authOptions: AuthOptions = {
             "Content-Type": "application/json",
           },
         });
-        const result: SuccessAuthResponse | FailedAuthResponse =
-          await response.json();
+        const result: SuccessAuthResponse = await response.json();
         if (result.message == "success") {
           return {
             id: result.user.email,

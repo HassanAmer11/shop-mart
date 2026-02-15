@@ -1,7 +1,8 @@
 export interface SuccessAuthResponse {
-    message: string;
-    user: UserInterface;
-    token: string;
+  message: string;
+  user: UserInterface;
+  token: string;
+  statusMsg: string;
 }
 
 export interface UserInterface {
@@ -10,7 +11,3 @@ export interface UserInterface {
     role: string;
 };
 
-export interface FailedAuthResponse {
-    message: string;
-    statusMsg: string;
-}
