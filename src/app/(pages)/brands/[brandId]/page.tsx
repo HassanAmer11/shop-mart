@@ -12,7 +12,7 @@ export default async function page({ params }: { params: Params }) {
   const responseDetails = await fetch(
     `${process.env.API_URL}products?brand=${brandId}`,
   );
-  const productData: ProductResponse = await responseDetails.json();
+  const productData: ProductResponse | null = await responseDetails.json();
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default async function page({ params }: { params: Params }) {
           <p className="text-muted-foreground">Products from this brand</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {productData.data.length > 0 ? (
+          {productData && productData.data.length > 0 ? (
             productData.data.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))

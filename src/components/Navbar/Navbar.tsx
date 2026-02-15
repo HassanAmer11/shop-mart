@@ -8,8 +8,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 
-
-import {User2Icon } from "lucide-react";
+import { User2Icon } from "lucide-react";
 import Link from "next/link";
 import Logout from "../Auth/Logout";
 import { getServerSession } from "next-auth";
@@ -69,12 +68,13 @@ export default async function Navbar() {
                   )}
                 </MenubarContent>
               </MenubarMenu>
-
-              <MenubarMenu>
-                <MenubarTrigger>
-                  <CartIcon />
-                </MenubarTrigger>
-              </MenubarMenu>
+              {session && (
+                <MenubarMenu>
+                  <MenubarTrigger>
+                    <CartIcon />
+                  </MenubarTrigger>
+                </MenubarMenu>
+              )}
             </Menubar>
           </div>
         </div>
