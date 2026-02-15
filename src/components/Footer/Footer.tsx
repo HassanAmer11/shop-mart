@@ -131,7 +131,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/contact"
+                    href="/"
                   >
                     Contact Us
                   </Link>
@@ -139,7 +139,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/help"
+                    href="/"
                   >
                     Help Center
                   </Link>
@@ -147,7 +147,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/track-order"
+                    href="/"
                   >
                     Track Your Order
                   </Link>
@@ -155,7 +155,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/returns"
+                    href="/"
                   >
                     Returns &amp; Exchanges
                   </Link>
@@ -163,7 +163,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/size-guide"
+                    href="/"
                   >
                     Size Guide
                   </Link>
@@ -176,7 +176,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/about"
+                    href="/"
                   >
                     About shopmart
                   </Link>
@@ -184,7 +184,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/careers"
+                    href="/"
                   >
                     Careers
                   </Link>
@@ -192,7 +192,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/press"
+                    href="/"
                   >
                     Press
                   </Link>
@@ -200,7 +200,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/investor-relations"
+                    href="/"
                   >
                     Investor Relations
                   </Link>
@@ -208,7 +208,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/sustainability"
+                    href="/"
                   >
                     Sustainability
                   </Link>
@@ -221,7 +221,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/privacy-policy"
+                    href="/"
                   >
                     Privacy Policy
                   </Link>
@@ -229,7 +229,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/terms-of-service"
+                    href="/"
                   >
                     Terms of Service
                   </Link>
@@ -237,7 +237,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/cookie-policy"
+                    href="/"
                   >
                     Cookie Policy
                   </Link>
@@ -245,7 +245,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/shipping-policy"
+                    href="/"
                   >
                     Shipping Policy
                   </Link>
@@ -253,7 +253,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-gray-600 text-sm hover:text-black transition-colors"
-                    href="/refund-policy"
+                    href="/"
                   >
                     Refund Policy
                   </Link>
