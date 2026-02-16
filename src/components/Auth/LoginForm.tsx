@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Loader } from "lucide-react";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z
@@ -74,66 +75,82 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>Login With Route</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
-            <Controller
-              name="email"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-email">E-mail</FieldLabel>
-                  <Input
-                    {...field}
-                    id="form-rhf-demo-email"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="example@gmail.com"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="password"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-password">
-                    Password
-                  </FieldLabel>
-                  <Input
-                    {...field}
-                    type="password"
-                    id="form-rhf-demo-password"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="******"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-          </FieldGroup>
-        </form>
-      </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
-          <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
-          </Button>
-          <Button disabled={isLoading} type="submit" form="form-rhf-demo">
-            {isLoading && <Loader className="animate-spin" />}
-            Submit
-          </Button>
-        </Field>
-      </CardFooter>
-    </Card>
+    <>
+      <Card className="w-full sm:max-w-md">
+        <CardHeader>
+          <CardTitle>Login With Route</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
+            <FieldGroup>
+              <Controller
+                name="email"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="form-rhf-demo-email">
+                      E-mail
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="form-rhf-demo-email"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="example@gmail.com"
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="password"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="form-rhf-demo-password">
+                      Password
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      type="password"
+                      id="form-rhf-demo-password"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="******"
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+            </FieldGroup>
+          </form>
+        </CardContent>
+        <CardFooter>
+          <Field orientation="horizontal">
+            <Button
+              className="w-full rounded-xl"
+              disabled={isLoading}
+              type="submit"
+              form="form-rhf-demo"
+            >
+              {isLoading && <Loader className="animate-spin" />}
+              Submit
+            </Button>
+          </Field>
+        </CardFooter>
+      </Card>
+      <p className="mt-5">
+        If you don't have account, please{" "}
+        <Link
+          href="/register"
+          className="text-blue-600 cursor-pointer font-bold"
+        >
+          SignUp
+        </Link>{" "}
+        Now
+      </p>
+    </>
   );
 }

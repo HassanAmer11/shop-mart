@@ -18,7 +18,6 @@ export default function CartIcon() {
     countCartItems();
     //countCartItems().then((num) => setCartNums(num));
     addEventListener("cartUpdated", function (e: CustomEvent) {
-      console.log(e.detail);
       setCartNums(e.detail);
     } as EventListener);
   }, []);

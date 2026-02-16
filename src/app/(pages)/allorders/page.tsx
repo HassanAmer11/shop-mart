@@ -10,25 +10,17 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 
 export default async function Orders() {
   const session = await getServerSession(authOptions);
-  console.log(session);
   const result = await fetch(
     process.env.API_URL + `users?email=${session?.user?.email}`,
   );
   const { users }: UserInterfaceResponse = await result.json();
 
-  console.log(users[0]._id);
   let orderData: OrdersResponse | null = null;
   if (users && users.length > 0) {
     const res = await fetch(
@@ -36,7 +28,6 @@ export default async function Orders() {
     );
     orderData = await res.json();
   }
-  console.log(orderData);
   return (
     <>
       <div className="container mx-auto px-4 py-6">

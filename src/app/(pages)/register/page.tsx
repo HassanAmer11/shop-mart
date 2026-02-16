@@ -50,20 +50,20 @@ export default function Register() {
 
   return (
     <div className=" min-h-screen flex justify-center items-center flex-col gap-6">
-      <h1 className="text-2xl text-center font-semibold">
+      <h1 className="text-2xl text-center font-bold">
         Register now and Join US{" "}
       </h1>
-      <div className="shadow-2xl w-md bg-white rounded-2xl py-10 px-5">
+      <div className="shadow-2xl shadow-gray-500 w-md bg-white rounded-2xl p-5">
         <form
           onSubmit={registerForm.handleSubmit(signUp)}
           className="flex flex-col gap-4"
         >
-          <FieldGroup>
+          <FieldGroup className="gap-3">
             <Controller
               name="name"
               control={registerForm.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field className="gap-2" data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-name">
                     User Name
                   </FieldLabel>
@@ -83,7 +83,7 @@ export default function Register() {
               name="email"
               control={registerForm.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field className="gap-2" data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-email">E-mail</FieldLabel>
                   <Input
                     {...field}
@@ -101,7 +101,7 @@ export default function Register() {
               name="password"
               control={registerForm.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field className="gap-2" data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-password">
                     Password
                   </FieldLabel>
@@ -122,7 +122,7 @@ export default function Register() {
               name="rePassword"
               control={registerForm.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field className="gap-2" data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-rePassword">
                     Confirm Password
                   </FieldLabel>
@@ -143,7 +143,7 @@ export default function Register() {
               name="phone"
               control={registerForm.control}
               render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
+                <Field className="gap-2" data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="form-rhf-demo-phone">Phone</FieldLabel>
                   <Input
                     {...field}
@@ -163,13 +163,16 @@ export default function Register() {
             {Loading && <LoaderCircleIcon className="animate-spin" />}
             Register
           </Button>
-          <p className="text-center">
-            If you have an account go to{" "}
-            <Link href={"/login"} className="text-blue-600 cursor-pointer">
-              Login
-            </Link>
-          </p>
         </form>
+        <p className="text-center mt-5">
+          If you have an account go to{" "}
+          <Link
+            href={"/login"}
+            className="text-blue-600 cursor-pointer font-bold"
+          >
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

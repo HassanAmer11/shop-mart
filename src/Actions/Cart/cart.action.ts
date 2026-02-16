@@ -9,7 +9,6 @@ import { getServerSession } from "next-auth";
 export async function getUserCartData() {
   try {
     const session = await getServerSession(authOptions);
-    console.log("token", session?.token);
     const response = await fetch(process.env.API_URL + "cart", {
       headers: {
         token: session?.token || ""

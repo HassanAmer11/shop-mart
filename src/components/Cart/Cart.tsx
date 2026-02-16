@@ -29,7 +29,7 @@ export default function Cart({ cartData }: { cartData: CartResponse }) {
     const res = await deleteSpecificCartItemAction(productId);
     if (res.status === "success") {
       setCartItems(res);
-      toast.success("Item Deleted");
+      toast.success("Item Deleted From Cart");
       dispatchEvent(
         new CustomEvent("cartUpdated", { detail: res.numOfCartItems }),
       );

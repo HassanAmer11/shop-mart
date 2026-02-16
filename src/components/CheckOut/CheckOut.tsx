@@ -25,7 +25,6 @@ export default function CheckOut({ cartId }: { cartId: string }) {
       details: details.current?.value ?? "",
       phone: phone.current?.value ?? "",
     });
-    console.log("Checkout result:", result);
     if (result.status === "success") {
       window.location.href = result.session.url;
     }

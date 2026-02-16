@@ -47,6 +47,9 @@ export default async function Navbar() {
                       <MenubarItem>
                         <Link href="/allorders">My Orders</Link>
                       </MenubarItem>
+                      <MenubarItem>
+                        <Link href="/wishlist">Wishlist</Link>
+                      </MenubarItem>
                       <Logout />
                     </MenubarGroup>
                   ) : (
