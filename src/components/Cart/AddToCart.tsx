@@ -4,7 +4,7 @@ import { CardFooter } from "../ui/card";
 import { Button } from "../ui/button";
 import { Heart, Loader, ShoppingCartIcon } from "lucide-react";
 import toast from "react-hot-toast";
-import {addToCartAction} from "@/Actions/Cart/cart.action";
+import { addToCartAction } from "@/Actions/Cart/cart.action";
 
 export default function AddToCart({ productId }: { productId: string }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,10 +12,15 @@ export default function AddToCart({ productId }: { productId: string }) {
     setIsLoading(true);
     try {
       const data = await addToCartAction(productId);
-      toast.success(data.message);
-          dispatchEvent(
-            new CustomEvent("cartUpdated", { detail: data.numOfCartItems }),
-          );
+      if (data.status == "success") {
+        toast.success(data.message);
+        toast.success(data.message);
+        dispatchEvent(
+          new CustomEvent("cartUpdated", { detail: data.numOfCartItems }),
+        );
+      } else {
+        toast.error(data.message);
+      }
     } catch (error) {
       console.log(error);
     }

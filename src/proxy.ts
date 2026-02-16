@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const protectedRoutes = ["/profile", "/orders", "/carts"];
 const authRoutes = ["/login", "/register"];
 
-export default async function Proxy(req: NextRequest) {
+export default async function Middleware(req: NextRequest) {
   //const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const token = await getToken({ req });
   const pathname = req.nextUrl.pathname;

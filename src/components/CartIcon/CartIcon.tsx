@@ -1,6 +1,6 @@
 "use client";
 import { getUserCartData } from "@/Actions/Cart/cart.action";
-import { LoaderCircleIcon, LoaderIcon, ShoppingCartIcon } from "lucide-react";
+import { LoaderCircleIcon, ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

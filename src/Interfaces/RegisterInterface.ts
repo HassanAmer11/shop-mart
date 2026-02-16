@@ -1,3 +1,5 @@
+import { UserInterface } from "./AuthInterface";
+
 export interface RegisterInterface {
   name: string;
   email: string;
@@ -9,12 +11,8 @@ export interface RegisterInterface {
 
 export interface RegisterResponse {
   message: string;
-  user: User;
+  user: UserInterface;
   token: string;
 }
 
-export interface User {
-  name: string;
-  email: string;
-  role: string;
-}
+
