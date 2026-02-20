@@ -24,7 +24,7 @@ export default function CartIcon() {
 
   return (
     <>
-      <Link href="/carts" className="relative">
+      <Link href="/cart" className="relative">
         <ShoppingCartIcon className="size-6" />
         <span className="text-sm bg-black text-white px-1 rounded-full absolute -top-2 -right-2">
           {isLoading ? (
